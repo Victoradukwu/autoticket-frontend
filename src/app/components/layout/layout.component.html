@@ -1,0 +1,87 @@
+<div class="container-fluid top-bar"></div>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+  <a class="navbar-brand" href="main.html">Autoticket</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">|Search for flights</a>
+      </li>   
+      <li class="nav-item">
+        <a class="nav-link" href="#">|Book a ticket</a>
+      </li>
+      <li class="nav-item avatar dropdown">
+        <a
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="nav-link dropdown-toggle waves-effect waves-light"
+          data-toggle="dropdown"
+          id="navbarDropdownMenuLink-6"
+        > |Admin</a>
+        <div
+          aria-labelledby="navbarDropdownMenuLink-6"
+          class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+        >
+          <a
+            class="dropdown-item waves-effect waves-light eborder-top"
+            routerLink="/flights/create/"
+            routerLinkActive="active">Schedule Flight</a>
+          <a
+            class="dropdown-item waves-effect waves-light"
+            routerLink="/seats/create">Create Seats</a>
+          <a
+            class="dropdown-item waves-effect waves-light"
+            routerLink="/tickets/list">Tickets List</a>
+        </div>
+      </li>
+      <li class="nav-item avatar dropdown">
+        <a
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="nav-link dropdown-toggle waves-effect waves-light"
+          data-toggle="dropdown"
+          id="navbarDropdownMenuLink-6"
+        >
+          <span class="profile-ava">
+            <img
+              src="../../../assets/img/img_avatar3.png"
+              alt="avatar image"
+              class="rounded-circle z-depth-0"
+              height="35"
+            />
+          </span>
+          <span class="username">VicF VicL</span>
+        </a>
+        <div
+          aria-labelledby="navbarDropdownMenuLink-6"
+          class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+        >
+          <a
+            class="dropdown-item waves-effect waves-light eborder-top"
+            routerLink="/profile"
+            routerLinkActive="active">Profile</a>
+          <a
+            class="dropdown-item waves-effect waves-light"
+            routerLink="/create-company"> My Tickets</a>
+
+          <a
+            class="dropdown-item waves-effect waves-light profileDropDown"
+            routerLink="/logout"
+            routerLinkActive="active"
+          >
+            <i class="fa fa-sign-out"></i> Log Out</a
+          >
+        </div>
+      </li>
+    </ul>
+  </div>  
+</nav>
+
+<router-outlet></router-outlet>
+
+<div class="container-fluid fixed-bottom text-center " id="footer">
+&copy; Autoticket <script>document.write(new Date().getFullYear())</script>
+</div>
