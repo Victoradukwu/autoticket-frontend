@@ -1,0 +1,32 @@
+<main>
+<ngx-spinner></ngx-spinner>
+<div class="container container-fluid shadow main-outer-div">
+  <h2>Available Flights</h2> 
+  <div class="shadow main-inner-div">         
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Flight Number</th>
+        <th>Flying From</th>
+        <th>Flying To</th>
+        <th>Date</th>
+        <th>Departure Time</th>
+        <th>Available seats</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let flight of flights">
+        <td>{{ flight.number }}</td>
+        <td>{{ flight.departure }}</td>
+        <td>{{ flight.destination }}</td>
+        <td>{{ flight.departure_date }}</td>
+        <td>{{ flight.departure_time }}</td>
+        <td>{{ flight.available_seats.length }}</td>
+        <td><button class="btn">Buy Ticket</button></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</main>

@@ -5,7 +5,13 @@ nav {
 	border-top: 5px solid #660033;
 }
 #footer {
-	height: 100px; background-color: #999;
+	height: 100px; background-color: #999999;
+}
+.main-outer-div {
+	background-color: #f2f2fA;
+}
+.main-inner-div {
+	background-color: #ffffff;
 }
 span.error {
 	width: 100%;
@@ -48,11 +54,11 @@ input[type="checkbox"] {
 
 
 .btn {
-	border: solid 1px #660033;
+	border: solid 1px #660033 !important;
 }
 
 .btn:hover{
-	color: white;
+	color: white !important;
 	background-color: #660033;
 }
 
