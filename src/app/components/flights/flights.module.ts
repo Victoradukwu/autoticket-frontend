@@ -11,7 +11,6 @@ import { RouterModule } from '@angular/router';
 		CommonModule,
 		NgxSpinnerModule,
 		RouterModule.forChild(flightRoutes)
-	],
-	exports: [ FlightListComponent ]
+	]
 })
 export class FlightsModule { }

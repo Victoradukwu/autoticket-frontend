@@ -25,12 +25,10 @@ export class FlightListComponent implements OnInit {
       flights => {
 				this.flights = flights;
 				this.spinner.hide();
-				this.toastr.success('Flights successfully fetched');
       },
       error => {this.spinner.hide();
 				this.toastr.error(error);
 			}
     );
   }
-
 }
