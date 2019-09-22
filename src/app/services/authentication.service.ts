@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
-import { tokenGetter } from 'src/app/app.module'
+import { tokenGetter } from 'src/app/helpers/tokenGetter';
 
 
 @Injectable({
