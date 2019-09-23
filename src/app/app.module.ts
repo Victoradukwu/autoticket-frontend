@@ -1,18 +1,18 @@
-import { AuthenticationModule } from './components/authentication/authentication.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LayoutComponent } from './components/layout/layout.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlightsModule } from './components/flights/flights.module';
-import { HttpClientModule } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
 import { JwtModule } from '@auth0/angular-jwt';
+import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthenticationModule } from './components/authentication/authentication.module';
+import { FlightsModule } from './components/flights/flights.module';
+import { LayoutComponent } from './components/layout/layout.component';
 import { tokenGetter } from './helpers/tokenGetter';
 
 
@@ -29,7 +29,7 @@ import { tokenGetter } from './helpers/tokenGetter';
       config: {
 				tokenGetter: tokenGetter,
 				skipWhenExpired: true,
-        whitelistedDomains: ['http://localhost:8000', 'https://auto-ticket.herokuapp.com'],
+        whitelistedDomains: ['localhost:8000', 'auto-ticket.herokuapp.com'],
       }
     }),
 		ReactiveFormsModule,

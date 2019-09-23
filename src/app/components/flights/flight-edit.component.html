@@ -1,0 +1,60 @@
+<main>
+<div class="container container-fluid card-holder" style="background-color: #f2f2fA;">       
+  <div class="card shadow-lg mx-auto">
+    <div class="card-header text-center">
+      <h4>{{ pageTitle }}</h4>
+    </div>
+    <div class="card-body container">
+      <form novalidate (ngSubmit)="onSubmit()" [formGroup]="flightForm">
+        <div class="row">
+        <div class="form-group col-md-6">
+          <label >Departure:
+          <input type="text" formControlName="departure" class="form-control form-control-sm"/>
+          </label>
+        </div>
+        <div class="form-group col-md-6">
+          <label >Destination:
+          <input type="text" formControlName="destination" class="form-control form-control-sm"/>
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label >Fare:
+          <input type="email" formControlName="fare" class="form-control form-control-sm"/>
+          </label>
+        </div>
+        <div class="form-group col-md-6">
+          <label >Flight Number:
+          <input type="text" formControlName="number" class="form-control form-control-sm"/>
+          </label>
+        </div>
+      </div>
+        <div class="row">
+        <div class="form-group col-md-6">
+          <label >Departure Date:
+          <input type="date" formControlName="departureDate" class="form-control form-control-sm"/>
+          </label>
+        </div>
+        <div class="form-group col-md-6">
+          <label >Departure Time:
+          <input type="time" formControlName="departureTime" class="form-control form-control-sm"/>
+          </label>
+        </div>
+      </div>
+        <div class="form-group">
+          <label >Status:
+          <select formControlName="status" class="form-control">
+                <option value="1">Active</option>
+                <option value="0">Cancelled</option>  
+              </select>
+          </label>
+        </div>
+        <div>
+          <button type="submit" class="btn float-left" [disabled]="!flightForm.valid">Submit</button>
+        </div>
+      </form>
+      </div>
+    </div>  
+  </div>
+</main>

@@ -5,7 +5,7 @@ export interface IFlight {
 	fare?: number;
 	status?: number;
 	number?: string;
-	departureTime?: string;
-	departureDate?: string;
-	availableSeats?: number[];
+	departure_time?: string;
+	departure_date?: string;
+	available_seats?: number[];
 }

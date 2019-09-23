@@ -4,24 +4,32 @@ import { IFlight } from 'src/app/models/flight';
 import { Title } from '@angular/platform-browser';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-flight-list',
   templateUrl: './flight-list.component.html',
 })
 export class FlightListComponent implements OnInit {
+	isAuthenticated: boolean;
+	isAdmin: boolean;
 	flights: IFlight[] = [];
 
   constructor(
-		private flightService: FlightsService,
+		private flightSrv: FlightsService,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
-    private titleService: Title
-		) { this.titleService.setTitle('Autoticket-Home'); }
+		private titleSrv: Title,
+		private authSrv: AuthenticationService,
+		private router: Router
+		) { this.titleSrv.setTitle('Autoticket-Home'); }
 
   ngOnInit() {
+		this.isAuthenticated = this.authSrv.isAuthenticated();
+		this.isAdmin = (this.isAuthenticated && (localStorage.getItem('isStaff') == 'true'));
 		this.spinner.show();
-		this.flightService.getFlights().subscribe(
+		this.flightSrv.getFlights().subscribe(
       flights => {
 				this.flights = flights;
 				this.spinner.hide();
@@ -30,5 +38,8 @@ export class FlightListComponent implements OnInit {
 				this.toastr.error(error);
 			}
     );
-  }
+	}
+	editFlight(flight: IFlight): void {
+		this.router.navigateByUrl('/flights/edit/', {state: flight});
+	}
 }
