@@ -1,4 +1,4 @@
 
-export function tokenGetter () {
-	return localStorage.getItem('token');
+export function tokenGetter() {
+  return localStorage.getItem('token');
 }

@@ -15,23 +15,23 @@ import { tokenGetter } from 'src/app/helpers/tokenGetter';
 })
 export class AuthenticationService {
 
-	constructor(
-		private http: HttpClient,
-		private jwtHelper: JwtHelperService
-		) { }
-	
-	signIn(data: object): Observable<object> {
-		return this.http.post<any>(`${environment.api_url}/users/login/`, data)
-		.pipe(catchError(handleError));
-	}
+  constructor(
+    private http: HttpClient,
+    private jwtHelper: JwtHelperService
+    ) { }
 
-	register(data: object): Observable<object> {
-		return this.http.post<any>(`${environment.api_url}/users/register/`, data)
-		.pipe(catchError(handleError));
-	}
-	isAuthenticated(): boolean {
-		const token = tokenGetter();
-		const tokenExpired = this.jwtHelper.isTokenExpired()
-		return (token && !tokenExpired)
-	}
+  signIn(data: object): Observable<object> {
+    return this.http.post<any>(`${environment.api_url}/users/login/`, data)
+    .pipe(catchError(handleError));
+  }
+
+  register(data: object): Observable<object> {
+    return this.http.post<any>(`${environment.api_url}/users/register/`, data)
+    .pipe(catchError(handleError));
+  }
+  isAuthenticated(): boolean {
+    const token = tokenGetter();
+    const tokenExpired = this.jwtHelper.isTokenExpired();
+    return (token && !tokenExpired);
+  }
 }

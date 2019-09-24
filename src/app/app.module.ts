@@ -23,22 +23,22 @@ import { tokenGetter } from './helpers/tokenGetter';
   ],
   imports: [
     BrowserModule,
-		AppRoutingModule,
-		HttpClientModule,
-		JwtModule.forRoot({
+    AppRoutingModule,
+    HttpClientModule,
+    JwtModule.forRoot({
       config: {
-				tokenGetter: tokenGetter,
-				skipWhenExpired: true,
+        tokenGetter,
+        skipWhenExpired: true,
         whitelistedDomains: ['localhost:8000', 'auto-ticket.herokuapp.com'],
       }
     }),
-		ReactiveFormsModule,
-		FormsModule,
-		AngularFontAwesomeModule,
-		BrowserAnimationsModule,
-		FlightsModule,
-		AuthenticationModule,
-		ToastrModule.forRoot()
+    ReactiveFormsModule,
+    FormsModule,
+    AngularFontAwesomeModule,
+    BrowserAnimationsModule,
+    FlightsModule,
+    AuthenticationModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

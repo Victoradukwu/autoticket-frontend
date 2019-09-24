@@ -11,20 +11,20 @@ import { handleError } from 'src/app/helpers/handle-error';
 })
 export class FlightsService {
 
-	constructor(private http: HttpClient) { }
-	
-	getFlights(): Observable<object[]> {
-		return this.http.get<any>(`${environment.api_url}/flights/`)
-		.pipe(catchError(handleError));
-	}
+  constructor(private http: HttpClient) { }
 
-	saveFlight(data: any): Observable<object> {
-		if (data.id) {
-			return this.http.put<any>(`${environment.api_url}/flights/${data.id}/`, data)
-			.pipe(catchError(handleError));
-		} else {
-			return this.http.post<any>(`${environment.api_url}/flights/`, data)
-			.pipe(catchError(handleError));
-		}
-	}
+  getFlights(): Observable<object[]> {
+    return this.http.get<any>(`${environment.api_url}/flights/`)
+    .pipe(catchError(handleError));
+  }
+
+  saveFlight(data: any): Observable<object> {
+    if (data.id) {
+      return this.http.put<any>(`${environment.api_url}/flights/${data.id}/`, data)
+      .pipe(catchError(handleError));
+    } else {
+      return this.http.post<any>(`${environment.api_url}/flights/`, data)
+      .pipe(catchError(handleError));
+    }
+  }
 }

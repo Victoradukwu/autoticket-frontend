@@ -10,11 +10,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [FlightListComponent, FlightEditComponent],
   imports: [
-		CommonModule,
-		FormsModule,
-		ReactiveFormsModule,
-		NgxSpinnerModule,
-		RouterModule.forChild(flightRoutes)
-	]
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxSpinnerModule,
+    RouterModule.forChild(flightRoutes)
+  ]
 })
 export class FlightsModule { }

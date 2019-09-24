@@ -6,18 +6,18 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   templateUrl: './layout.component.html'
 })
 export class LayoutComponent implements OnInit {
-	isAuthenticated: boolean;
-	isAdmin: boolean;
+  isAuthenticated: boolean;
+  isAdmin: boolean;
 
   constructor(private authSrv: AuthenticationService) { }
 
   ngOnInit() {
-		this.isAuthenticated = this.authSrv.isAuthenticated();
-		this.isAdmin = (this.isAuthenticated && (localStorage.getItem('isStaff') == 'true'));
-	}
-	
-	handleLogout() {
-		localStorage.clear();
-    location.reload(true);
-	}
+    this.isAuthenticated = this.authSrv.isAuthenticated();
+    this.isAdmin = (this.isAuthenticated && (localStorage.getItem('isStaff') === 'true'));
+  }
+
+  handleLogout() {
+    localStorage.clear();
+    location.reload();
+  }
 }

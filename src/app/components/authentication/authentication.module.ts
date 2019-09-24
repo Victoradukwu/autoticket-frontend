@@ -10,11 +10,11 @@ import { RegisterComponent } from './register.component';
 @NgModule({
   declarations: [SignInComponent, RegisterComponent],
   imports: [
-		CommonModule,
-		FormsModule,
-		ReactiveFormsModule,
-		NgxSpinnerModule,
-		RouterModule.forChild(authRoutes)
-	],
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxSpinnerModule,
+    RouterModule.forChild(authRoutes)
+  ],
 })
 export class AuthenticationModule { }

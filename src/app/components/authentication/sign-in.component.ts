@@ -9,30 +9,30 @@ import { Router } from '@angular/router';
   templateUrl: './sign-in.component.html'
 })
 export class SignInComponent implements OnInit {
-	signInForm: FormGroup;
+  signInForm: FormGroup;
 
   constructor(
-		private fb: FormBuilder,
-		private authService: AuthenticationService,
-		private toastr: ToastrService,
-		private spinner: NgxSpinnerService,
-		private router: Router
-	) { }
+    private fb: FormBuilder,
+    private authService: AuthenticationService,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-		this.signInForm = this.fb.group({
-			email: ['', Validators.required],
-			password: ['', Validators.required],
-		});
-	}
-	signIn(): void {
+    this.signInForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
+  signIn(): void {
     this.spinner.show();
     this.authService.signIn(this.signInForm.value).subscribe(
       resp => {
-				this.spinner.hide();
-				localStorage.setItem('token', resp['token']);
-				localStorage.setItem('isStaff', resp['data']['isStaff']);
-				this.router.navigate(['']);
+        this.spinner.hide();
+        localStorage.setItem('token', resp['token']);
+        localStorage.setItem('isStaff', resp['data']['isStaff']);
+        this.router.navigate(['']);
         this.toastr.success(resp['message']);
       },
       error => {
