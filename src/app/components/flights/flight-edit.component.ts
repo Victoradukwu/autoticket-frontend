@@ -14,7 +14,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class FlightEditComponent implements OnInit {
 	flightForm: FormGroup;
-	flight: IFlight;
+	flight: IFlight = {};
 	pageTitle: string;
 
   constructor(
@@ -38,7 +38,29 @@ export class FlightEditComponent implements OnInit {
 		});
 		this.displayFlight();
 	}
-	
+
+	displayFlight(): void {
+    if (this.flightForm) {
+      this.flightForm.reset();
+		}
+		const flight = history.state;
+    if (!flight.id) {
+      this.pageTitle = 'Schedule a flight';
+    } else {
+			this.flight = flight;
+			this.pageTitle = `Edit Flight: ${this.flight.number}`;
+			this.flightForm.patchValue({
+				departure: this.flight.departure,
+				destination: this.flight.destination,
+				fare: this.flight.fare,
+				number: this.flight.number,
+				status: this.flight.status,
+				departureTime: this.flight.departure_time,
+				departureDate: this.flight.departure_date,
+			});
+    }
+	}
+
 	onSubmit() {
 		this.spinner.show();
 		const data = this.flight;
@@ -60,26 +82,4 @@ export class FlightEditComponent implements OnInit {
 			}
     );
 	}
-
-	displayFlight(): void {
-    if (this.flightForm) {
-      this.flightForm.reset();
-		}
-		const flight = history.state;
-    if (!flight) {
-      this.pageTitle = 'Schedule a flight';
-    } else {
-			this.flight = flight;
-			this.pageTitle = `Edit Flight: ${this.flight.number}`;
-			this.flightForm.patchValue({
-				departure: this.flight.departure,
-				destination: this.flight.destination,
-				fare: this.flight.fare,
-				number: this.flight.number,
-				status: this.flight.status,
-				departureTime: this.flight.departure_time,
-				departureDate: this.flight.departure_date,
-			});
-    }
-  }
 }

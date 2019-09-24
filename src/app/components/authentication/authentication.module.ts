@@ -16,6 +16,5 @@ import { RegisterComponent } from './register.component';
 		NgxSpinnerModule,
 		RouterModule.forChild(authRoutes)
 	],
-	exports: [SignInComponent]
 })
 export class AuthenticationModule { }

@@ -4,6 +4,6 @@ import { FlightEditComponent } from './flight-edit.component';
 
 
 export const flightRoutes: Routes = [
-	{ path: '', component: FlightListComponent },
-	{ path: 'flights/edit/', component: FlightEditComponent }
+	{ path: 'flights/edit', component: FlightEditComponent },
+	{ path: '', component: FlightListComponent }
 ];

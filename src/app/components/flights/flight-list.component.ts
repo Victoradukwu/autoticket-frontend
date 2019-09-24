@@ -40,6 +40,6 @@ export class FlightListComponent implements OnInit {
     );
 	}
 	editFlight(flight: IFlight): void {
-		this.router.navigateByUrl('/flights/edit/', {state: flight});
+		this.router.navigateByUrl('/flights/edit', {state: flight});
 	}
 }
