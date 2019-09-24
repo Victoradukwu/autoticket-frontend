@@ -13,7 +13,7 @@ export class FlightsService {
 
   constructor(private http: HttpClient) { }
 
-  getFlights(): Observable<object[]> {
+  getFlights(): Observable<any[]> {
     return this.http.get<any>(`${environment.api_url}/flights/`)
     .pipe(catchError(handleError));
   }
@@ -26,5 +26,10 @@ export class FlightsService {
       return this.http.post<any>(`${environment.api_url}/flights/`, data)
       .pipe(catchError(handleError));
     }
+  }
+
+  createSeat(data: object): Observable<any> {
+    return this.http.post<any>(`${environment.api_url}/seats/`, data)
+    .pipe(catchError(handleError));
   }
 }

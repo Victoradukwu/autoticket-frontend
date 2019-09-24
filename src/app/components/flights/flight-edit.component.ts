@@ -32,7 +32,7 @@ export class FlightEditComponent implements OnInit {
       destination: ['', Validators.required],
       fare: ['', Validators.required],
       number: ['', Validators.required],
-      status: [1, Validators.required],
+      status: 1,
       departureTime: ['', Validators.required],
       departureDate: ['', Validators.required],
     });
@@ -82,5 +82,10 @@ export class FlightEditComponent implements OnInit {
         this.toastr.error(error);
       }
     );
+  }
+
+  isInvalid(controlName: string) {
+    const ctrl = this.flightForm.controls[controlName];
+    return {'is-invalid':  (ctrl.dirty || ctrl.touched) &&  ctrl.invalid};
   }
 }

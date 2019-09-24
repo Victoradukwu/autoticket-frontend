@@ -5,7 +5,6 @@ import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
 
-
 @Component({
   templateUrl: './register.component.html',
 })
@@ -66,5 +65,4 @@ export class RegisterComponent implements OnInit {
     const ctrl = this.registerForm.controls[controlName];
     return {'is-invalid':  (ctrl.dirty || ctrl.touched) &&  ctrl.invalid};
   }
-
 }

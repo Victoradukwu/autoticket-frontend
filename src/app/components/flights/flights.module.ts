@@ -6,9 +6,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { RouterModule } from '@angular/router';
 import { FlightEditComponent } from './flight-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateSeatComponent } from './create-seat.component';
 
 @NgModule({
-  declarations: [FlightListComponent, FlightEditComponent],
+  declarations: [FlightListComponent, FlightEditComponent, CreateSeatComponent],
   imports: [
     CommonModule,
     FormsModule,
