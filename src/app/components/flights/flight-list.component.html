@@ -23,7 +23,15 @@
         <td>{{ flight.departure_date }}</td>
         <td>{{ flight.departure_time }}</td>
         <td>{{ flight.available_seats.length }}</td>
-        <td><button class="btn" *ngIf="!(flight.status==0 || !flight.available_seats.length > 0)">Buy Ticket</button></td>
+        <td>
+					<button 
+					class="btn" 
+					*ngIf="!(flight.status==0 || !flight.available_seats.length > 0)" 
+					(click)="bookFlight(flight.number)"
+					>
+						Buy Ticket
+					</button>
+				</td>
         <td><button class="btn" *ngIf="isAdmin" (click)="editFlight(flight)">Edit</button></td>
       </tr>
     </tbody>

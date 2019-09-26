@@ -1,0 +1,56 @@
+<main>
+  <div class="container container-fluid card-holder" style="background-color: #f2f2fA;">       
+    <div class="card shadow-lg mx-auto">
+      <div class="card-header text-center">
+        <h4>Book a ticket</h4>
+      </div>
+      <div class="card-body container">
+        <form novalidate (ngSubmit)="createTicket()" [formGroup]="ticketForm">
+          <div class="form-group">
+            <label >Passenger Name:
+            <input formControlName="passenger" type="text" name="passenger" class="form-control form-control-sm"/>
+            </label>
+          </div>
+          <div class="form-group">
+            <label >Card Number:
+            <input formControlName="cardNumber" type="text" class="form-control form-control-sm"/>
+            </label>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label >Card Cvv:
+                <input formControlName="cvv" type="text" class="form-control form-control-sm"/>
+              </label>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Card PIN:
+                <input formControlName="pin" type="number" class="form-control form-control-sm"/>
+              </label>
+            </div>
+          </div>
+          <div class="form-group" formGroupName="cardExpiry">
+            <label>Card Expiry:
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <select formControlName="expiryMonth" class="form-control">
+                    <option value="Expiry Month" selected>Expiry Month</option>
+                    <option *ngFor = "let month of validMonths;" value="{{month}}">{{month}}</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <select formControlName="expiryYear" class="form-control">
+                    <option value="Expiry Year">Expiry Year</option>
+                    <option *ngFor="let year of validYears;" value="{{year}}">{{ year }}</option>
+                  </select>
+                </div>
+              </div>
+            </label>
+          </div>
+          <div>
+            <button type="submit" class="btn float-left" [disabled]="!ticketForm.valid">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>  
+  </div>
+</main>

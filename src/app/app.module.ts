@@ -1,3 +1,4 @@
+import { TicketsModule } from './components/tickets/tickets.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -37,7 +38,8 @@ import { tokenGetter } from './helpers/tokenGetter';
     AngularFontAwesomeModule,
     BrowserAnimationsModule,
     FlightsModule,
-    AuthenticationModule,
+		AuthenticationModule,
+		TicketsModule,
     ToastrModule.forRoot()
   ],
   providers: [],

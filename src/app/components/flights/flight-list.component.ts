@@ -8,7 +8,6 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-flight-list',
   templateUrl: './flight-list.component.html',
 })
 export class FlightListComponent implements OnInit {
@@ -39,8 +38,13 @@ export class FlightListComponent implements OnInit {
         this.toastr.error(error);
       }
     );
-  }
+	}
+
   editFlight(flight: IFlight): void {
     this.router.navigateByUrl('/flights/edit', {state: flight});
-  }
+	}
+
+	bookFlight(flightNumber: string): void {
+    this.router.navigate(['/tickets/create', flightNumber])
+	}
 }
