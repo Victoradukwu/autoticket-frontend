@@ -4,9 +4,10 @@ import { CommonModule } from '@angular/common';
 import { CreateTicketComponent } from './create-ticket.component';
 import { RouterModule } from '@angular/router';
 import { ticketRoutes } from './ticket-routing';
+import { TicketsListComponent } from './tickets-list.component';
 
 @NgModule({
-  declarations: [CreateTicketComponent],
+  declarations: [CreateTicketComponent, TicketsListComponent],
   imports: [
 		CommonModule,
 		FormsModule,
