@@ -51,15 +51,18 @@ label {
 input[type="checkbox"] {
 	margin-left: 5px;
 }
+.modal label {
+	font-weight: 700; 
+	font-size: 14px
+}
 
-
-.btn {
+.btn:not(.bn-solid) {
 	border: solid 1px #660033 !important;
 }
 
-.btn:hover{
+.btn:hover, .btn-solid{
 	color: white !important;
-	background-color: #660033;
+	background-color: #660033 !important;
 }
 
 @media screen and (max-width: 600px) {

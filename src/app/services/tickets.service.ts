@@ -16,5 +16,11 @@ export class TicketsService {
   createTicket(data: object): Observable<any> {
     return this.http.post<any>(`${environment.api_url}/tickets/book/`, data)
     .pipe(catchError(handleError));
-  }
+	}
+
+	getTickets(params = {}): Observable<any[]> {
+    return this.http.get<any>(`${environment.api_url}/tickets/list/`, {params: params})
+    .pipe(catchError(handleError));
+	}
+
 }
