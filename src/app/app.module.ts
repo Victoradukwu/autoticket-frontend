@@ -1,4 +1,3 @@
-import { TicketsModule } from './components/tickets/tickets.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -8,11 +7,13 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationModule } from './components/authentication/authentication.module';
 import { FlightsModule } from './components/flights/flights.module';
+import { TicketsModule } from './components/tickets/tickets.module';
 import { LayoutComponent } from './components/layout/layout.component';
 import { tokenGetter } from './helpers/tokenGetter';
 
@@ -25,7 +26,9 @@ import { tokenGetter } from './helpers/tokenGetter';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+		HttpClientModule,
+		ModalModule.forRoot(),
+		ToastrModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter,
@@ -39,8 +42,7 @@ import { tokenGetter } from './helpers/tokenGetter';
     BrowserAnimationsModule,
     FlightsModule,
 		AuthenticationModule,
-		TicketsModule,
-    ToastrModule.forRoot()
+		TicketsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
