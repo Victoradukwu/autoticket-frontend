@@ -26,9 +26,9 @@ import { tokenGetter } from './helpers/tokenGetter';
   imports: [
     BrowserModule,
     AppRoutingModule,
-		HttpClientModule,
-		ModalModule.forRoot(),
-		ToastrModule.forRoot(),
+    HttpClientModule,
+    ModalModule.forRoot(),
+    ToastrModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter,
@@ -41,8 +41,8 @@ import { tokenGetter } from './helpers/tokenGetter';
     AngularFontAwesomeModule,
     BrowserAnimationsModule,
     FlightsModule,
-		AuthenticationModule,
-		TicketsModule
+    AuthenticationModule,
+    TicketsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

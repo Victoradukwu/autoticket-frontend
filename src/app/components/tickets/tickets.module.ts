@@ -9,10 +9,10 @@ import { TicketsListComponent } from './tickets-list.component';
 @NgModule({
   declarations: [CreateTicketComponent, TicketsListComponent],
   imports: [
-		CommonModule,
-		FormsModule,
-		ReactiveFormsModule,
-		RouterModule.forChild(ticketRoutes)
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forChild(ticketRoutes)
   ]
 })
 export class TicketsModule { }

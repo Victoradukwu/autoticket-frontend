@@ -56,7 +56,7 @@ export class CreateTicketComponent implements OnInit {
 
   createTicket() {
     this.spinner.show();
-    const formValue = this.ticketForm.value
+    const formValue = this.ticketForm.value;
     const data = {
       passenger: formValue.passenger,
       flight: this.flightNumber,

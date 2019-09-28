@@ -16,9 +16,9 @@ import { HttpParams } from '@angular/common/http';
 export class FlightListComponent implements OnInit {
   isAuthenticated: boolean;
   isAdmin: boolean;
-	flights: IFlight[] = [];
-	flightSearchForm: FormGroup;
-	modalRef: BsModalRef;
+  flights: IFlight[] = [];
+  flightSearchForm: FormGroup;
+  modalRef: BsModalRef;
 
   constructor(
     private flightSrv: FlightsService,
@@ -26,22 +26,21 @@ export class FlightListComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private titleSrv: Title,
     private authSrv: AuthenticationService,
-		private router: Router,
-		private fb: FormBuilder,
-		private modalSrv: BsModalService
+    private router: Router,
+    private fb: FormBuilder,
+    private modalSrv: BsModalService
     ) { this.titleSrv.setTitle('Autoticket-Home'); }
 
   ngOnInit() {
     this.isAuthenticated = this.authSrv.isAuthenticated();
-		this.isAdmin = (this.isAuthenticated && (localStorage.getItem('isStaff') === 'true'));
-		this.flightSearchForm = this.fb.group({
+    this.isAdmin = (this.isAuthenticated && (localStorage.getItem('isStaff') === 'true'));
+    this.flightSearchForm = this.fb.group({
       destination: '',
-			departure: '',
-			status: '',
+      departure: '',
+      status: '',
       departure_date: '',
       departure_date_lookup: ''
-
-    })
+    });
     this.spinner.show();
     this.flightSrv.getFlights().subscribe(
       flights => {
@@ -53,30 +52,30 @@ export class FlightListComponent implements OnInit {
         this.toastr.error(error);
       }
     );
-	}
+  }
 
   editFlight(flight: IFlight): void {
     this.router.navigateByUrl('/flights/edit', {state: flight});
-	}
+  }
 
-	bookFlight(flightNumber: string): void {
-    this.router.navigate(['/tickets/create', flightNumber])
-	}
+  bookFlight(flightNumber: string): void {
+    this.router.navigate(['/tickets/create', flightNumber]);
+  }
 
-	openModal(template: TemplateRef<any>) {
+  openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalSrv.show(template);
-	}
-	
-	filterFlights() {
+  }
+
+  filterFlights() {
     let params = new HttpParams();
-    for (let [key, val] of Object.entries(this.flightSearchForm.value)) {
+    for (const [key, val] of Object.entries(this.flightSearchForm.value)) {
       if (val) {
         params = params.append(key, `${val}`);
       }
     }
     this.flightSrv.getFlights(params).subscribe(
       flights => {
-        this.modalRef.hide()
+        this.modalRef.hide();
         this.flights = flights;
         this.spinner.hide();
       },

@@ -31,8 +31,7 @@ export class TicketsListComponent implements OnInit {
       booked_by: '',
       flight_number: '',
       flight_date: ''
-
-    })
+    });
     this.spinner.show();
     this.ticketSrv.getTickets().subscribe(
       tickets => {
@@ -48,17 +47,16 @@ export class TicketsListComponent implements OnInit {
 
   filterTickets() {
     let params = new HttpParams();
-    for (let [key, val] of Object.entries(this.ticketSearchForm.value)) {
+    for (const [key, val] of Object.entries(this.ticketSearchForm.value)) {
       if (val) {
         params = params.append(key, `${val}`);
       }
     }
     this.ticketSrv.getTickets(params).subscribe(
       tickets => {
-        this.modalRef.hide()
+        this.modalRef.hide();
         this.tickets = tickets;
         this.spinner.hide();
-        
       },
       error => {
         this.spinner.hide();

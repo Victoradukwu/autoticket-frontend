@@ -11,8 +11,8 @@ export class LayoutComponent implements OnInit {
   isAdmin: boolean;
 
   constructor(
-		private authSrv: AuthenticationService,
-		private router: Router) { }
+    private authSrv: AuthenticationService,
+    private router: Router) { }
 
   ngOnInit() {
     this.isAuthenticated = this.authSrv.isAuthenticated();
@@ -20,7 +20,7 @@ export class LayoutComponent implements OnInit {
   }
 
   handleLogout() {
-		localStorage.clear();
-		this.router.navigate([''])
+    localStorage.clear();
+    this.router.navigate(['']);
   }
 }
