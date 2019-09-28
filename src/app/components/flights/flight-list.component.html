@@ -1,8 +1,57 @@
 <main>
 <ngx-spinner></ngx-spinner>
-<div class="container container-fluid shadow main-outer-div">
-  <h2>Available Flights</h2> 
-  <div class="shadow main-inner-div">         
+<div class="container shadow main-outer-div" style="padding-top: 20px;">
+  <h2 style="display: inline">Available Flights</h2> 
+	<button type="button" class="btn float-right btn-solid" (click)="openModal(template)">
+    Filter flights
+  </button>
+	<ng-template #template class="modal">
+
+		<div class="modal-header">
+			<h4 class="modal-title">Flight Filter</h4>
+			<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+					<span aria-hidden="true">&times;</span>
+				</button>
+		</div>
+		
+		<div class="modal-body">
+			<form novalidate (ngSubmit)="filterFlights()" [formGroup]="flightSearchForm">
+				<div class="form-group">
+				<label>Departure:</label>
+				<input type="text" formControlName="departure" class="form-control form-control-sm m-b-0"/>
+				</div>
+
+				<div class="form-group">
+				<label >Destination:</label>
+				<input type="text" formControlName="destination" class="form-control form-control-sm"/>
+				</div>
+				<div class="form-group">
+				<label >Departure Date:</label>
+				<input type="date" formControlName="departure_date" class="form-control form-control-sm"/>
+				<select formControlName="departure_date_lookup" class="form-control form-control-sm">
+					<option value="" selected>Date lookup</option>
+					<option value="exact">On</option>
+					<option value="gte">After</option>
+					<option value="lte">Before</option>
+				</select>
+				</div>
+				<div class="form-group">
+				<label >Status:</label>
+				<select formControlName="status" class="form-control form-control-sm">
+						<option value="" selected>----</option>
+						<option value="1">Active</option>
+						<option value="0">Cancelled</option>
+					</select>
+				</div> 
+				<hr>
+				<div class="form-group">
+					<button class="btn btn-solid float-left" [disabled]="!flightSearchForm.valid">Submit</button>
+				</div>
+			</form>
+		</div>
+
+	</ng-template>
+  <div class="shadow">         
   <table class="table table-hover">
     <thead>
       <tr>

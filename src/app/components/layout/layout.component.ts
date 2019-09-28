@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -9,7 +10,9 @@ export class LayoutComponent implements OnInit {
   isAuthenticated: boolean;
   isAdmin: boolean;
 
-  constructor(private authSrv: AuthenticationService) { }
+  constructor(
+		private authSrv: AuthenticationService,
+		private router: Router) { }
 
   ngOnInit() {
     this.isAuthenticated = this.authSrv.isAuthenticated();
@@ -17,7 +20,7 @@ export class LayoutComponent implements OnInit {
   }
 
   handleLogout() {
-    localStorage.clear();
-    location.reload();
+		localStorage.clear();
+		this.router.navigate([''])
   }
 }

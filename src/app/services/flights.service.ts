@@ -13,8 +13,8 @@ export class FlightsService {
 
   constructor(private http: HttpClient) { }
 
-  getFlights(): Observable<any[]> {
-    return this.http.get<any>(`${environment.api_url}/flights/`)
+  getFlights(params = {}): Observable<any[]> {
+    return this.http.get<any>(`${environment.api_url}/flights/`, {params: params})
     .pipe(catchError(handleError));
   }
 
