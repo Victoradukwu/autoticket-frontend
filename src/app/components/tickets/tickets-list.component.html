@@ -23,6 +23,11 @@
 				<div class="form-group">
 				<label >Email:</label>
 				<input type="text" formControlName="booked_by" class="form-control form-control-sm"/>
+				<select formControlName="booked_by_lookup" class="form-control form-control-sm">
+					<option value="" selected>Email lookup</option>
+					<option value="iexact">Exactly matches</option>
+					<option value="icontains">Contains</option>
+				</select>
 				</div>
 
 				<div class="form-group">

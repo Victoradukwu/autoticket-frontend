@@ -22,8 +22,7 @@ export class TicketsListComponent implements OnInit {
     private titleSrv: Title,
     private fb: FormBuilder,
     private modalSrv: BsModalService
-
-    ) { this.titleSrv.setTitle('Autoticket-tickets'); }
+) { this.titleSrv.setTitle('Autoticket-tickets'); }
 
   ngOnInit() {
     this.ticketSearchForm = this.fb.group({
@@ -68,5 +67,4 @@ export class TicketsListComponent implements OnInit {
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalSrv.show(template);
   }
-
 }

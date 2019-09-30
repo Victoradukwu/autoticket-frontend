@@ -1,0 +1,33 @@
+<main>
+<div class="container shadow" style="padding-top: 20px;">
+	<h2 style="display: inline">Your Tickets</h2> 
+  <div class="shadow">         
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Passenger name</th>
+        <th>Flight Number</th>
+        <th>Ticket Number</th>
+        <th>Seat Number</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Date</th>
+        <th>Departure Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let ticket of tickets">
+        <td>{{ ticket.passenger }}</td>
+        <td>{{ ticket.seat.flight_info.number }}</td>
+        <td>{{ ticket.id }}</td>
+        <td>{{ ticket.seat.seat_number }}</td>
+        <td>{{ ticket.seat.flight_info.departure }}</td>
+        <td>{{ ticket.seat.flight_info.destination }}</td>
+        <td>{{ ticket.seat.flight_info.departure_date }}</td>
+        <td>{{ ticket.seat.flight_info.departure_time }}</td>
+      </tr>   
+    </tbody>
+  </table>
+  </div>
+</div>
+</main>

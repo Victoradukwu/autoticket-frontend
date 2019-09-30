@@ -1,6 +1,8 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/aa7762cc0d88e728356d/maintainability)](https://codeclimate.com/github/Victoradukwu/autoticket-frontend/maintainability)
+
 # AutoticketFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.4.
+This project is the frontend implementation of the `Autoticket` API.
 
 ## Development server
 
