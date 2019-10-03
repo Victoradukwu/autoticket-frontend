@@ -21,6 +21,7 @@ export class LayoutComponent implements OnInit {
 
   handleLogout() {
     localStorage.clear();
-    this.router.navigate(['']);
+		this.router.navigate(['']);
+		location.assign('')
   }
 }

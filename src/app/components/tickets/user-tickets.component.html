@@ -18,13 +18,13 @@
     <tbody>
       <tr *ngFor = "let ticket of tickets">
         <td>{{ ticket.passenger }}</td>
-        <td>{{ ticket.seat.flight_info.number }}</td>
+        <td>{{ ticket.seat.flightInfo.number }}</td>
         <td>{{ ticket.id }}</td>
-        <td>{{ ticket.seat.seat_number }}</td>
-        <td>{{ ticket.seat.flight_info.departure }}</td>
-        <td>{{ ticket.seat.flight_info.destination }}</td>
-        <td>{{ ticket.seat.flight_info.departure_date }}</td>
-        <td>{{ ticket.seat.flight_info.departure_time }}</td>
+        <td>{{ ticket.seat.seatNumber }}</td>
+        <td>{{ ticket.seat.flightInfo.departure }}</td>
+        <td>{{ ticket.seat.flightInfo.destination }}</td>
+        <td>{{ ticket.seat.flightInfo.departure_date }}</td>
+        <td>{{ ticket.seat.flightInfo.departure_time }}</td>
       </tr>   
     </tbody>
   </table>

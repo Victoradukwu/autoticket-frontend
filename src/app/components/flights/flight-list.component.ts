@@ -38,8 +38,8 @@ export class FlightListComponent implements OnInit {
       destination: '',
       departure: '',
       status: '',
-      departure_date: '',
-      departure_date_lookup: ''
+      departureDate: '',
+      departureDate_lookup: ''
     });
     this.spinner.show();
     this.flightSrv.getFlights().subscribe(

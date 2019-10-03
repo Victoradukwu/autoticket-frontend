@@ -39,11 +39,11 @@ export class RegisterComponent implements OnInit {
   register() {
     const formValue = this.registerForm.value;
     const fd = new FormData();
-    fd.append('first_name', formValue.firstName);
-    fd.append('last_name', formValue.lastName);
+    fd.append('firstName', formValue.firstName);
+    fd.append('lastName', formValue.lastName);
     fd.append('email', formValue.email);
     fd.append('password', formValue.password);
-    fd.append('confirm_password', formValue.confirmPassword);
+    fd.append('confirmPassword', formValue.confirmPassword);
     fd.append('image', this.fileToUpload, this.fileToUpload.name);
 
     this.spinner.show();

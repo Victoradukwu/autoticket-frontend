@@ -24,8 +24,8 @@ export class UserTicketsComponent implements OnInit {
     const token = tokenGetter();
     const userEmail = this.jwtHelper.decodeToken(token).email;
     let params = new HttpParams();
-    params = params.append('booked_by', userEmail);
-    params = params.append('booked_by_lookup', 'iexact');
+    params = params.append('bookedBy', userEmail);
+    params = params.append('bookedBy_lookup', 'iexact');
     this.ticketSrv.getTickets(params).subscribe(
       tickets => {
         this.tickets = tickets;

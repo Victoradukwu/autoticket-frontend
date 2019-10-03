@@ -3,12 +3,10 @@ import { throwError } from 'rxjs';
 
 export const handleError = (err: HttpErrorResponse) => {
   let errMessage = '';
-  if (err.error.detail) {
+  if (typeof(err.error.detail) === 'string') {
     errMessage = err.error.detail;
-  } else if (typeof(err.error.message) === 'string') {
-    errMessage = err.error.message;
   }	else {
-    for (const [key, value] of Object.entries(err.error.message)) {
+    for (const [key, value] of Object.entries(err.error.detail)) {
       errMessage += `${key}: ${value}\n`;
     }
   }

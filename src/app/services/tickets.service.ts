@@ -14,13 +14,12 @@ export class TicketsService {
   constructor(private http: HttpClient) { }
 
   createTicket(data: object): Observable<any> {
-    return this.http.post<any>(`${environment.api_url}/tickets/book/`, data)
+    return this.http.post<any>(`${environment.api_url}/tickets/`, data)
     .pipe(catchError(handleError));
   }
 
   getTickets(params = {}): Observable<any[]> {
-    return this.http.get<any>(`${environment.api_url}/tickets/list/`, {params})
+    return this.http.get<any>(`${environment.api_url}/tickets/`, {params})
     .pipe(catchError(handleError));
   }
-
 }

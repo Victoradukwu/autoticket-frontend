@@ -63,8 +63,8 @@ export class CreateTicketComponent implements OnInit {
       pin: formValue.pin,
       number: formValue.cardNumber,
       cvv: formValue.cvv,
-      expiry_month: formValue.cardExpiry['expiryMonth'],
-      expiry_year: formValue.cardExpiry['expiryYear']
+      expiryMonth: formValue.cardExpiry['expiryMonth'],
+      expiryYear: formValue.cardExpiry['expiryYear']
     };
     this.ticketSrv.createTicket(data).subscribe(
       (resp) => {

@@ -27,9 +27,10 @@ export class TicketsListComponent implements OnInit {
   ngOnInit() {
     this.ticketSearchForm = this.fb.group({
       passenger: '',
-      booked_by: '',
-      flight_number: '',
-      flight_date: ''
+      bookedBy: '',
+      flightNumber: '',
+			flightDate: '',
+			bookedBy_lookup:''
     });
     this.spinner.show();
     this.ticketSrv.getTickets().subscribe(

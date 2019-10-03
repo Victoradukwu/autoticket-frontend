@@ -55,8 +55,8 @@ export class FlightEditComponent implements OnInit {
         fare: this.flight.fare,
         number: this.flight.number,
         status: this.flight.status,
-        departureTime: this.flight.departure_time,
-        departureDate: this.flight.departure_date,
+        departureTime: this.flight.departureTime,
+        departureDate: this.flight.departureDate,
       });
     }
   }
@@ -68,8 +68,8 @@ export class FlightEditComponent implements OnInit {
     data.destination = this.flightForm.value.destination;
     data.fare = this.flightForm.value.fare;
     data.number = this.flightForm.value.number;
-    data.departure_date = this.flightForm.value.departureDate;
-    data.departure_time = this.flightForm.value.departureTime;
+    data.departureDate = this.flightForm.value.departureDate;
+    data.departureTime = this.flightForm.value.departureTime;
     data.status = this.flightForm.value.status;
     this.flightSrv.saveFlight(data).subscribe(
       () => {
