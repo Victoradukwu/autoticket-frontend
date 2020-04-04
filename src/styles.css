@@ -56,13 +56,29 @@ input[type="checkbox"] {
 	font-size: 14px
 }
 
-.btn:not(.bn-solid) {
+.btn:not(.bn-solid):not(.btn-social) {
 	border: solid 1px #660033 !important;
 }
 
-.btn:hover, .btn-solid{
+.btn:not(.btn-social):hover, .btn-solid{
 	color: white !important;
 	background-color: #660033 !important;
+}
+
+.btn-social.btn-facebook{
+	background-color: #4267b2;
+	border-radius: 5px;
+	width: 100%;
+
+	color: white;
+}
+
+.btn-social.btn-google{
+	background-color: red;
+	border-radius: 5px;
+	width: 100%;
+
+	color: white;
 }
 
 @media screen and (max-width: 600px) {

@@ -8,6 +8,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +18,21 @@ import { TicketsModule } from './components/tickets/tickets.module';
 import { LayoutComponent } from './components/layout/layout.component';
 import { tokenGetter } from './helpers/tokenGetter';
 
+export function getAuthServiceConfigs() {
+  const config = new AuthServiceConfig(
+  [
+  {
+      id: FacebookLoginProvider.PROVIDER_ID,
+      provider: new FacebookLoginProvider('250475589468786')
+  },
+  {
+      id: GoogleLoginProvider.PROVIDER_ID,
+      provider: new GoogleLoginProvider('92005104280-u5n98j0urda69jr3jimun8m19jk4cb54.apps.googleusercontent.com')
+  }
+  ]
+  );
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -24,6 +40,7 @@ import { tokenGetter } from './helpers/tokenGetter';
     LayoutComponent
   ],
   imports: [
+    SocialLoginModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -44,7 +61,10 @@ import { tokenGetter } from './helpers/tokenGetter';
     AuthenticationModule,
     TicketsModule
   ],
-  providers: [],
+  providers: [{
+    provide: AuthServiceConfig,
+    useFactory: getAuthServiceConfigs
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

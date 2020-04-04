@@ -47,7 +47,6 @@ export class RegisterComponent implements OnInit {
     fd.append('image', this.fileToUpload, this.fileToUpload.name);
 
     this.spinner.show();
-    this.spinner.show();
     this.authService.register(fd).subscribe(
       resp => {
         this.spinner.hide();
