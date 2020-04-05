@@ -1,90 +1,85 @@
 <main>
-<ngx-spinner></ngx-spinner>
-<div class="container shadow main-outer-div" style="padding-top: 20px;">
-  <h2 style="display: inline">Available Flights</h2> 
-	<button type="button" class="btn float-right btn-solid" (click)="openModal(template)">
-    Filter flights
-  </button>
-	<ng-template #template class="modal">
-
-		<div class="modal-header">
-			<h4 class="modal-title">Flight Filter</h4>
-			<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-					<span aria-hidden="true">&times;</span>
-				</button>
-		</div>
-		
-		<div class="modal-body">
-			<form novalidate (ngSubmit)="filterFlights()" [formGroup]="flightSearchForm">
-				<div class="form-group">
-				<label>Departure:</label>
-				<input type="text" formControlName="departure" class="form-control form-control-sm m-b-0"/>
-				</div>
-
-				<div class="form-group">
-				<label >Destination:</label>
-				<input type="text" formControlName="destination" class="form-control form-control-sm"/>
-				</div>
-				<div class="form-group">
-				<label >Departure Date:</label>
-				<input type="date" formControlName="departureDate" class="form-control form-control-sm"/>
-				<select formControlName="departureDate_lookup" class="form-control form-control-sm">
-					<option value="" selected>Date lookup</option>
-					<option value="exact">On</option>
-					<option value="gte">After</option>
-					<option value="lte">Before</option>
-				</select>
-				</div>
-				<div class="form-group">
-				<label >Status:</label>
-				<select formControlName="status" class="form-control form-control-sm">
-						<option value="" selected>----</option>
-						<option value="1">Active</option>
-						<option value="0">Cancelled</option>
-					</select>
-				</div> 
-				<hr>
-				<div class="form-group">
-					<button class="btn btn-solid float-left" [disabled]="!flightSearchForm.valid">Submit</button>
-				</div>
-			</form>
-		</div>
-
-	</ng-template>
-  <div class="shadow">         
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Flight Number</th>
-        <th>Flying From</th>
-        <th>Flying To</th>
-        <th>Date</th>
-        <th>Departure Time</th>
-        <th>Available seats</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let flight of flights">
-        <td>{{ flight.number }}</td>
-        <td>{{ flight.departure }}</td>
-        <td>{{ flight.destination }}</td>
-        <td>{{ flight.departureDate }}</td>
-        <td>{{ flight.departureTime }}</td>
-        <td>{{ flight.availableSeats.length }}</td>
-        <td>
-					<button 
-					class="btn" 
-					*ngIf="!(flight.status==0 || !flight.availableSeats.length > 0)" 
-					(click)="bookFlight(flight.number)"
-					>
-						Buy Ticket
+    <ngx-spinner></ngx-spinner>
+    <div class="container shadow main-outer-div" style="padding-top: 20px;">
+        <h2 style="display: inline">Available Flights</h2>
+        <button type="button" class="btn float-right btn-solid" (click)="openModal(template)">
+			Filter flights
+		</button>
+        <ng-template #template class="modal">
+            <div class="modal-header">
+                <h4 class="modal-title">Flight Filter</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+						<span aria-hidden="true">&times;</span>
 					</button>
-				</td>
-        <td><button class="btn" *ngIf="isAdmin" (click)="editFlight(flight)">Edit</button></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-</div>
+            </div>
+
+            <div class="modal-body">
+                <form novalidate (ngSubmit)="filterFlights()" [formGroup]="flightSearchForm">
+                    <div class="form-group">
+                        <label>Departure:</label>
+                        <input type="text" formControlName="departure" class="form-control form-control-sm m-b-0" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Destination:</label>
+                        <input type="text" formControlName="destination" class="form-control form-control-sm" />
+                    </div>
+                    <div class="form-group">
+                        <label>Departure Date:</label>
+                        <input type="date" formControlName="departureDate" class="form-control form-control-sm" />
+                        <select formControlName="departureDate_lookup" class="form-control form-control-sm">
+						<option value="" selected>Date lookup</option>
+						<option value="exact">On</option>
+						<option value="gte">After</option>
+						<option value="lte">Before</option>
+					</select>
+                    </div>
+                    <div class="form-group">
+                        <label>Status:</label>
+                        <select formControlName="status" class="form-control form-control-sm">
+							<option value="" selected>----</option>
+							<option value="1">Active</option>
+							<option value="0">Cancelled</option>
+						</select>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <button class="btn btn-solid float-left" [disabled]="!flightSearchForm.valid">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+        </ng-template>
+        <div class="shadow">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Flight Number</th>
+                        <th>Flying From</th>
+                        <th>Flying To</th>
+                        <th>Date</th>
+                        <th>Departure Time</th>
+                        <th>Available seats</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let flight of flights">
+                        <td>{{ flight.number }}</td>
+                        <td>{{ flight.departure }}</td>
+                        <td>{{ flight.destination }}</td>
+                        <td>{{ flight.departureDate }}</td>
+                        <td>{{ flight.departureTime }}</td>
+                        <td>{{ flight.availableSeats.length }}</td>
+                        <td>
+                            <button class="btn" *ngIf="flightIsBookable(flight)" (click)="bookFlight(flight.number)">
+					Buy Ticket
+			</button>
+                        </td>
+                        <td><button class="btn" *ngIf="isAdmin" (click)="editFlight(flight)">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </main>

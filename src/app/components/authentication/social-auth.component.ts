@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FacebookLoginProvider, GoogleLoginProvider, AuthService} from 'angularx-social-login';
+import { FacebookLoginProvider, GoogleLoginProvider, AuthService } from 'angularx-social-login';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -35,24 +35,23 @@ export class SocialAuthComponent implements OnInit {
     this.spinner.show();
     this.authSrv.socialAuth(socialPlatformProvider).subscribe(
       resp => {
-        this.spinner.hide();
         this.exchangeToken(backend, resp['authToken']);
       },
       error => {
         this.toastr.error(error);
       }
     );
-    }
+  }
 
   exchangeToken(backend: string, token: string) {
-    const data = {'accessToken': token}
+    const data = { 'accessToken': token }
     this.authSrv.exchangeToken(backend, data).subscribe(
       resp => {
-        this.spinner.hide();
         localStorage.setItem('token', resp['token']);
         localStorage.setItem('isStaff', resp['data']['isStaff']);
-				this.router.navigate(['']);
-				location.assign('')
+        this.router.navigate(['']);
+        location.assign('')
+        this.spinner.hide();
         this.toastr.success(resp['message']);
       },
       error => {

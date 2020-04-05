@@ -85,4 +85,10 @@ export class FlightListComponent implements OnInit {
       }
     );
   }
+  flightIsBookable(flight: IFlight): boolean {
+    const currentTime = new Date().getTime();
+    const timeNotValid = currentTime >= new Date(flight.departureDate+" "+flight.departureTime).getTime()
+    return !(flight.status==0 || flight.availableSeats.length <= 0 || timeNotValid);
+  }
+  
 }

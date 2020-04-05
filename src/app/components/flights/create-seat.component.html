@@ -1,46 +1,43 @@
 <main>
-<div class="container container-fluid card-holder" style="background-color: #f2f2fA;">       
-  <div class="card shadow-lg mx-auto">
-    <div class="card-header text-center">
-      <h4>Add a flight seat</h4>
-    </div>
-    <div class="card-body container">
-      <form novalidate (ngSubmit)="createSeat()" [formGroup]="seatForm">
-        <div class="form-group">
-          <label >Flight Number:
-          	<select formControlName="flightNumber" class="form-control"
-						[ngClass]="isInvalid('flightNumber')">
-								<option *ngFor="let flight of flightNumbers;" 
-								value={{flight}}>{{ flight }}</option>
+    <div class="container container-fluid card-holder" style="background-color: #f2f2fA;">
+        <div class="card shadow-lg mx-auto">
+            <div class="card-header text-center">
+                <h4>Add a flight seat</h4>
+            </div>
+            <div class="card-body container">
+                <form novalidate (ngSubmit)="createSeat()" [formGroup]="seatForm">
+                    <div class="form-group">
+                        <label>Flight Number:
+							<select formControlName="flightNumber" class="form-control" [ngClass]="isInvalid('flightNumber')">
+								<option *ngFor="let flight of flightNumbers;" value={{flight}}>{{ flight }}</option>
 							</select>
 							<span class="invalid-feedback">
 								Flight Number is required.
 							</span>
-          </label>
+		</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Seat Number:
+							<input type="text" formControlName="seatNumber" class="form-control form-control-sm"
+								[ngClass]="isInvalid('seatNumber')" />
+							<span class="invalid-feedback">
+								Seat Number is required.
+							</span>
+						</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Status:
+							<select formControlName="purpose" class="form-control">
+								<option value="1">Available</option>
+								<option value="0">Booked</option>
+							</select>
+						</label>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn float-left" [disabled]="!seatForm.valid">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="form-group">
-          <label >Seat Number:
-          <input type="text" formControlName="seatNumber"  class="form-control form-control-sm"
-					[ngClass]="isInvalid('seatNumber')"/>
-					<span class="invalid-feedback">
-						Seat Number is required.
-					</span>
-          </label>
-        </div>
-        <div class="form-group">
-          <label >Status:
-          <select formControlName="purpose" class="form-control">
-                <option value="1" >Available</option>
-                <option value="0">Booked</option>  
-          </select>
-          </label>
-        </div>
-        <div>
-          <button type="submit" class="btn float-left" [disabled]="!seatForm.valid">Submit</button>
-        </div>
-         </form>
-      </div>
-    </div>  
-  </div>
-  
+    </div>
 </main>
