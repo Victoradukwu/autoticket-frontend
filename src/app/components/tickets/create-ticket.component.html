@@ -2,7 +2,8 @@
   <div class="container container-fluid card-holder" style="background-color: #f2f2fA;">       
     <div class="card shadow-lg mx-auto">
       <div class="card-header text-center">
-        <h4>Book a ticket</h4>
+        <h4>Book a flight</h4>
+        <small>Pay: US${{fare}}</small>
       </div>
       <div class="card-body container">
         <form novalidate (ngSubmit)="createTicket()" [formGroup]="ticketForm">

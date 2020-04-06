@@ -2,7 +2,8 @@
 
 # AutoticketFrontend
 
-This project is the frontend implementation of the Autoticket API, built with Angular. To access the application, use this link: https://autoticket-client.herokuapp.com/.
+This project is the frontend implementation of the Autoticket API, built with Angular. To access the application, use this link: https://autoticket-client.herokuapp.com/. The features of this application
+are as enumerated in the API project: https://github.com/Victoradukwu/AutoTicket .
 
 ## Development server
 

@@ -58,8 +58,8 @@ export class FlightListComponent implements OnInit {
     this.router.navigateByUrl('/flights/edit', {state: flight});
   }
 
-  bookFlight(flightNumber: string): void {
-    this.router.navigate(['/tickets/create', flightNumber]);
+  bookFlight(flight: IFlight): void {
+    this.router.navigate(['/tickets/create', flight.number, flight.fare]);
   }
 
   openModal(template: TemplateRef<any>) {

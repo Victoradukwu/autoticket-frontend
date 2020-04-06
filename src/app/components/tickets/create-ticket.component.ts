@@ -15,6 +15,7 @@ import { validateExpiry } from 'src/app/helpers/validators';
 export class CreateTicketComponent implements OnInit {
   ticketForm: FormGroup;
   flightNumber: string;
+  fare: string;
   validYears: number[] = [];
   validMonths: string[] = [
     '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'
@@ -32,6 +33,7 @@ export class CreateTicketComponent implements OnInit {
 
   ngOnInit() {
     this.flightNumber = this.route.snapshot.paramMap.get('fltNumber');
+    this.fare = this.route.snapshot.paramMap.get('fare')
     this.generateValidYears();
     this.ticketForm = this.fb.group({
       passenger: ['', Validators.required],
