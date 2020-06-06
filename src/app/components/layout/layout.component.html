@@ -47,13 +47,13 @@
         >
           <span class="profile-ava">
             <img
-              src="../../../assets/img/img_avatar3.png"
+              [src] = 'image'
               alt="avatar image"
               class="rounded-circle z-depth-0"
               height="35"
             />
           </span>
-          <span class="username">VicF VicL</span>
+          <span class="username">{{user.firstName + ' ' + user.lastName}}</span>
         </a>
         <div
           aria-labelledby="navbarDropdownMenuLink-6"
@@ -80,5 +80,5 @@
 <router-outlet></router-outlet>
 
 <div class="container-fluid fixed-bottom text-center " id="footer">
-&copy; Autoticket <script>document.write(new Date().getFullYear())</script>
+&copy; Autoticket {{thisYear}}
 </div>

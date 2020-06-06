@@ -31,7 +31,7 @@ export class SignInComponent implements OnInit {
       resp => {
         this.spinner.hide();
         localStorage.setItem('token', resp['token']);
-        localStorage.setItem('isStaff', resp['data']['isStaff']);
+        localStorage.setItem('user', JSON.stringify(resp['data']));
 				this.router.navigate(['']);
 				location.assign('')
         this.toastr.success(resp['message']);

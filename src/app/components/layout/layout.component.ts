@@ -9,14 +9,20 @@ import { Router } from '@angular/router';
 export class LayoutComponent implements OnInit {
   isAuthenticated: boolean;
   isAdmin: boolean;
+  user: object;
+  image: string;
+  thisYear = new Date().getFullYear();
 
   constructor(
     private authSrv: AuthenticationService,
     private router: Router) { }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'));
     this.isAuthenticated = this.authSrv.isAuthenticated();
-    this.isAdmin = (this.isAuthenticated && (localStorage.getItem('isStaff') === 'true'));
+    this.isAdmin = (this.user && this.user['isStaff']);
+    this.image = this.user['image'] ? this.user['image'] : "../../../assets/img/img_avatar3.png"
+    // this.thisYear = new Date().getFullYear();
   }
 
   handleLogout() {
