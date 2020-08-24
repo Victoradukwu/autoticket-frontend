@@ -36,6 +36,16 @@ export class AuthenticationService {
     .pipe(catchError(handleError));
   }
 
+  resetPassword(data: object): Observable<object> {
+    return this.http.post<any>(`${environment.api_url}/users/password-reset/confirm/`, data)
+    .pipe(catchError(handleError));
+  }
+
+  initiatePasswordReset(data: object): Observable<object> {
+    return this.http.post<any>(`${environment.api_url}/users/password-reset/`, data)
+    .pipe(catchError(handleError));
+  }
+
   register(data: object): Observable<object> {
     return this.http.post<any>(`${environment.api_url}/users/register/`, data)
     .pipe(catchError(handleError));

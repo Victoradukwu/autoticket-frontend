@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ToastrModule } from 'ngx-toastr';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 
@@ -54,7 +54,6 @@ export function getAuthServiceConfigs() {
       }
     }),
     ReactiveFormsModule,
-    FormsModule,
     AngularFontAwesomeModule,
     BrowserAnimationsModule,
     FlightsModule,

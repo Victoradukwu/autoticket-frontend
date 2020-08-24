@@ -16,6 +16,7 @@
           <input formControlName="password" type="password" class="form-control form-control-sm"/>
           </label>
         </div>
+        <small>Did you forget your password? <a routerLink="/auth/initiate-pw-reset">Reset it.</a></small><br>
         <small>Don't have an account? <a routerLink="/auth/register">Register</a> to continue.</small>
         <div>
           <button type="submit" class="btn float-left" [disabled]="!signInForm.valid">Submit</button>

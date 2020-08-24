@@ -1,4 +1,4 @@
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateTicketComponent } from './create-ticket.component';
@@ -11,7 +11,6 @@ import { UserTicketsComponent } from './user-tickets.component';
   declarations: [CreateTicketComponent, TicketsListComponent, UserTicketsComponent],
   imports: [
     CommonModule,
-    FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(ticketRoutes)
   ]

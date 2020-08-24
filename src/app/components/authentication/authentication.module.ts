@@ -4,15 +4,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { authRoutes } from './auth-routings';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register.component';
 import { SocialAuthComponent } from './social-auth.component';
+import { ResetPasswordComponent } from './reset-password.component';
+import { InitiatePwResetComponent } from './initiate-pw-reset.component';
 
 @NgModule({
-  declarations: [SignInComponent, RegisterComponent, SocialAuthComponent],
+  declarations: [SignInComponent, RegisterComponent, SocialAuthComponent, ResetPasswordComponent, InitiatePwResetComponent],
   imports: [
     CommonModule,
-    FormsModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
     RouterModule.forChild(authRoutes)

@@ -1,0 +1,21 @@
+<main>
+  <ngx-spinner></ngx-spinner>
+    <div class="card shadow-lg mx-auto">
+      <div class="card-header text-center">
+        <h4>Password Reset</h4>
+      </div>
+      <div class="card-body container">
+        <form novalidate (ngSubmit)="reset()" [formGroup]="pwResetForm">
+          <div class="form-group">
+            <label >Email:
+            <input formControlName="email" type="text" class="form-control form-control-sm"/>
+            </label>
+          </div>
+            <button type="submit" class="btn float-left" [disabled]="!pwResetForm.valid">Submit</button>
+          </form>
+        </div>
+        <hr/>
+      </div> 
+  </main>
+  
+
