@@ -9,9 +9,10 @@ import { RegisterComponent } from './register.component';
 import { SocialAuthComponent } from './social-auth.component';
 import { ResetPasswordComponent } from './reset-password.component';
 import { InitiatePwResetComponent } from './initiate-pw-reset.component';
+import { ChangePasswordComponent } from './change-password.component';
 
 @NgModule({
-  declarations: [SignInComponent, RegisterComponent, SocialAuthComponent, ResetPasswordComponent, InitiatePwResetComponent],
+  declarations: [SignInComponent, RegisterComponent, SocialAuthComponent, ResetPasswordComponent, InitiatePwResetComponent, ChangePasswordComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
