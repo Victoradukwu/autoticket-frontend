@@ -13,7 +13,7 @@
     "private": true,
     "dependencies": {
         "@angular/animations": "^8.0.3",
-        "@angular/cli": "~8.0.4",
+        "@angular/cli": "~15.1.4",
         "@angular/common": "~8.0.1",
         "@angular/compiler": "~8.0.1",
         "@angular/compiler-cli": "~8.0.1",
@@ -41,7 +41,7 @@
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "^0.803.24",
-        "@angular/cli": "~8.0.4",
+        "@angular/cli": "~15.1.4",
         "@angular/compiler-cli": "~8.0.1",
         "@angular/language-service": "~8.0.1",
         "@babel/compat-data": "~7.8.0",
